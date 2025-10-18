@@ -11,10 +11,7 @@ github: "https://github.com/miskahm/visiontrack"
 
 A production-ready computer vision system for real-time object detection and multi-object tracking, built with YOLOv8 and Streamlit. This project demonstrates clean architecture, comprehensive testing, and modern ML engineering practices.
 
-![Tests](https://img.shields.io/badge/tests-71%20passed-brightgreen.svg)
-![Coverage](https://img.shields.io/badge/coverage-94%25-brightgreen.svg)
-
-## 🎯 Key Features
+## Key Features
 
 - **Real-time Object Detection** - YOLOv8-powered detection with adjustable confidence thresholds
 - **Multi-Object Tracking** - Persistent object tracking across frames with unique IDs

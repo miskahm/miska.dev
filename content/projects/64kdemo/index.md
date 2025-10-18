@@ -9,13 +9,9 @@ github: "https://github.com/miskahm/64kdemo"
 
 A **34.5 KB** demoscene intro using Vulkan and ShaderToy-style shaders written in pure C.
 
-![Size: 34.5 KB](https://img.shields.io/badge/size-34.5%20KB-brightgreen)
-![Status: Release Ready](https://img.shields.io/badge/status-release%20ready-success)
-![Platform: Windows](https://img.shields.io/badge/platform-windows-blue)
+## Features
 
-## 🎨 Features
-
-- ✅ **Final size: 34.5 KB** (under 64KB limit!)
+- **Final size: 34.5 KB** (under 64KB limit!)
 - Vulkan rendering with fullscreen quad
 - ShaderToy-style fragment shaders
 - Pure C implementation

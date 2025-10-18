@@ -11,7 +11,7 @@ github: "https://github.com/miskahm/flash-sale"
 
 A Next.js 15 e-commerce landing page optimized for flash sales and limited-time offers. Features real-time countdown timers, dynamic stock tracking, and an engaging high-conversion UI designed to drive immediate purchase decisions.
 
-## ✨ Features
+## Features
 
 - **Real-Time Countdown Timers** - Global and per-product countdowns that auto-reset for continuous flash sales
 - **Dynamic Stock Management** - Live stock updates with visual indicators and urgency messaging
@@ -27,7 +27,7 @@ A Next.js 15 e-commerce landing page optimized for flash sales and limited-time 
 - **Stripe** - Payment processing (sandbox mode)
 - **Tailwind CSS** - Modern, responsive styling
 
-## 🚀 Live Demo
+## Live Demo
 
 [View Live Demo](https://flash-sale-beige.vercel.app/)
 
