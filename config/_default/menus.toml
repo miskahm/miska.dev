@@ -1,0 +1,24 @@
+[[main]]
+  name = "Blog"
+  pageRef = "blog"
+  weight = 10
+
+[[main]]
+  name = "Projects"
+  pageRef = "projects"
+  weight = 20
+
+[[main]]
+  name = "About"
+  pageRef = "about"
+  weight = 30
+
+[[footer]]
+  name = "Privacy"
+  pageRef = "privacy"
+  weight = 10
+
+[[footer]]
+  name = "Contact"
+  url = "mailto:your@email.com"
+  weight = 20
