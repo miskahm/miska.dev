@@ -71,3 +71,60 @@ article h1,
   animation-duration: 0.25s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ========== Sidebar Styling ========== */
+
+/* Sidebar TOC styling */
+.toc-sidebar ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.toc-sidebar li {
+  padding: 0.25rem 1rem;
+  margin: 0.125rem 0;
+}
+
+.toc-sidebar a {
+  color: rgb(var(--color-neutral-700));
+  text-decoration: none;
+  display: block;
+  transition: all 0.2s;
+}
+
+.dark .toc-sidebar a {
+  color: rgb(var(--color-neutral-300));
+}
+
+.toc-sidebar a:hover {
+  color: rgb(var(--color-primary-600));
+  background-color: rgba(var(--color-primary-50), 1);
+  border-radius: 0.25rem;
+}
+
+.dark .toc-sidebar a:hover {
+  color: rgb(var(--color-primary-400));
+  background-color: rgba(var(--color-primary-950), 1);
+}
+
+/* Nested TOC items */
+.toc-sidebar ul ul {
+  padding-left: 1rem;
+  margin-top: 0.25rem;
+}
+
+.toc-sidebar ul ul a {
+  font-size: 0.875rem;
+}
+
+/* Main content with sidebar - adjust layout */
+body.has-sidebar {
+  margin-left: 18rem;
+}
+
+@media (max-width: 1024px) {
+  body.has-sidebar {
+    margin-left: 0;
+  }
+}
