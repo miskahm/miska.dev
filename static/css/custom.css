@@ -20,10 +20,24 @@ mark,
   background-color: rgba(139, 92, 246, 0.1) !important;
 }
 
-/* Search input focus color */
+/* Search input focus color - override blue */
 #search-query:focus,
-input[type="search"]:focus {
+#search-query:focus-visible,
+input[type="search"]:focus,
+input[type="search"]:focus-visible {
+  outline: 2px dotted rgb(139, 92, 246) !important;
+  outline-offset: 0px !important;
   border-color: rgb(139, 92, 246) !important;
-  outline-color: rgb(139, 92, 246) !important;
-  ring-color: rgb(139, 92, 246) !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1) !important;
+}
+
+/* Remove default browser focus styles first */
+#search-query,
+input[type="search"] {
+  outline: none;
+}
+
+/* Search modal border color when focused */
+#search-modal:has(#search-query:focus) {
+  border-color: rgb(139, 92, 246) !important;
 }
