@@ -131,10 +131,5 @@ Custom domain configured with:
 
 ## License
 
-Content: © 2025 Miska
+Content: © 2025 Miska Hämäläinen
 Code: MIT License
-
-## Inspiration
-
-- Design inspiration: https://vkoskiv.com/
-- Setup guide: https://merox.dev/blog/wordpress-to-hugo-setup/
