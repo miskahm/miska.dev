@@ -27,12 +27,23 @@ showScrollToTop = true
 
 # Author info
 [author]
-  name = "Miska"
+  name = "Miska Hämäläinen"
   # image = "/img/avatar.jpg"  # Commented out - will add later with full URL
   headline = "Security & Software Engineer"
   bio = "Passionate about cybersecurity, software engineering, and building fast, secure web applications."
   links = [
-    { github = "https://github.com/yourusername" },
-    { twitter = "https://twitter.com/yourusername" },
-    { linkedin = "https://linkedin.com/in/yourusername" },
+    { github = "https://github.com/miskahm" },
+    { linkedin = "https://www.linkedin.com/in/miska-hämäläinen/" },
   ]
+
+# Footer
+[footer]
+  showCopyright = true
+  copyright = "© 2025 Miska Hämäläinen"
+  showThemeAttribution = true
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+# Custom CSS
+[params]
+  customCSS = ["css/custom.css"]
