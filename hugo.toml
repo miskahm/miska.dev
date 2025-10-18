@@ -1,6 +1,6 @@
 baseURL = 'https://miska.dev/'
 languageCode = 'en-us'
-title = 'Miska.dev - Security & Software Engineering'
+title = 'Home - Security & Software Engineering'
 theme = 'blowfish'
 
 # Enable GitInfo for last modified dates
