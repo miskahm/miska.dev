@@ -1,0 +1,29 @@
+/* Search highlight color - match ocean/purple theme */
+mark,
+.search-result mark,
+#search-results mark {
+  background-color: rgba(139, 92, 246, 0.3) !important; /* Purple with transparency */
+  color: inherit !important;
+}
+
+/* Dark mode search highlights */
+.dark mark,
+.dark .search-result mark,
+.dark #search-results mark {
+  background-color: rgba(139, 92, 246, 0.4) !important; /* Slightly more visible in dark mode */
+  color: inherit !important;
+}
+
+/* Search result hover state */
+.search-result:hover,
+#search-results a:hover {
+  background-color: rgba(139, 92, 246, 0.1) !important;
+}
+
+/* Search input focus color */
+#search-query:focus,
+input[type="search"]:focus {
+  border-color: rgb(139, 92, 246) !important;
+  outline-color: rgb(139, 92, 246) !important;
+  ring-color: rgb(139, 92, 246) !important;
+}
