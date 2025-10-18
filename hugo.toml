@@ -1,3 +1,22 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://miska.dev/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Miska.dev - Security & Software Engineering'
+theme = 'blowfish'
+
+# Enable GitInfo for last modified dates
+enableGitInfo = true
+
+# Enable emoji support
+enableEmoji = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.highlight]
+    style = 'monokai'
+    lineNos = true
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true  # Allow HTML in markdown
