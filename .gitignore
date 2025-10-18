@@ -2,6 +2,9 @@
 /public/
 /resources/_gen/
 /.hugo_build.lock
+hugo_*/
+hugo.exe
+hugo
 
 # OS
 .DS_Store
