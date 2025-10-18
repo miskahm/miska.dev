@@ -1,11 +1,22 @@
-{{/* Side Panel Navigation */}}
-<aside class="hidden lg:block lg:fixed lg:left-8 lg:top-24 lg:w-64 lg:h-[calc(100vh-8rem)] lg:overflow-y-auto scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+{{/* Side Panel Navigation - Fixed Positioning */}}
+<aside id="sidebar" style="
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 40;
+  padding: 1.5rem;
+  background-color: var(--tw-prose-body);
+" class="hidden lg:block bg-neutral dark:bg-neutral-900 border-r border-neutral-200 dark:border-neutral-700 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+
   <div class="flex flex-col h-full space-y-6">
 
     {{/* Author Profile Section */}}
     {{ if site.Params.author }}
     <div class="flex flex-col items-center p-6 rounded-lg bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
-      {{/* Avatar - placeholder for now, can add image later */}}
+      {{/* Avatar - gradient circle with initial */}}
       <div class="w-24 h-24 mb-4 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white text-3xl font-bold">
         {{ substr site.Params.author.name 0 1 }}
       </div>
@@ -98,3 +109,12 @@
 
   </div>
 </aside>
+
+{{/* Add margin to body content on desktop to make room for sidebar */}}
+<style>
+  @media (min-width: 1024px) {
+    body {
+      margin-left: 280px;
+    }
+  }
+</style>

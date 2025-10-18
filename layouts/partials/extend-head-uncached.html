@@ -1,0 +1,16 @@
+{{/* This partial is called in the head but we'll use it to inject the sidebar into body via JavaScript */}}
+<script>
+  // Inject sidebar as first child of body when DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // The sidebar HTML will be in a template
+    const sidebarTemplate = document.getElementById('sidebar-template');
+    if (sidebarTemplate) {
+      document.body.insertAdjacentHTML('afterbegin', sidebarTemplate.innerHTML);
+    }
+  });
+</script>
+
+{{/* Hidden template containing sidebar HTML */}}
+<template id="sidebar-template">
+  {{ partial "sidebar.html" . }}
+</template>
