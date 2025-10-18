@@ -1,0 +1,38 @@
+# Theme appearance
+colorScheme = "ocean"  # ocean, fire, forest, etc.
+defaultAppearance = "dark"  # light, dark, auto
+autoSwitchAppearance = true
+
+# Site features
+enableSearch = true
+enableCodeCopy = true
+showScrollToTop = true
+
+# Article settings
+[article]
+  showDate = true
+  showDateUpdated = true
+  showAuthor = true
+  showReadingTime = true
+  showTableOfContents = true
+  showTaxonomies = true
+  showWordCount = true
+  sharingLinks = ["twitter", "linkedin", "reddit", "hackernews"]
+
+# Homepage layout
+[homepage]
+  layout = "profile"  # page, profile, hero, card, background
+  showRecent = true
+  recentLimit = 5
+
+# Author info
+[author]
+  name = "Miska"
+  image = "img/avatar.jpg"
+  headline = "Security & Software Engineer"
+  bio = "Passionate about cybersecurity, software engineering, and building fast, secure web applications."
+  links = [
+    { github = "https://github.com/yourusername" },
+    { twitter = "https://twitter.com/yourusername" },
+    { linkedin = "https://linkedin.com/in/yourusername" },
+  ]
