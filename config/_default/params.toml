@@ -28,7 +28,7 @@ showScrollToTop = true
 # Author info
 [author]
   name = "Miska"
-  image = "img/avatar.jpg"
+  # image = "/img/avatar.jpg"  # Commented out - will add later with full URL
   headline = "Security & Software Engineer"
   bio = "Passionate about cybersecurity, software engineering, and building fast, secure web applications."
   links = [
