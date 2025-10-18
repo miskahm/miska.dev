@@ -8,6 +8,10 @@ enableSearch = true
 enableCodeCopy = true
 showScrollToTop = true
 
+# Site icons
+[site]
+  favicon = "/favicon.png"
+
 # Article settings
 [article]
   showDate = true
