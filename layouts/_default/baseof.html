@@ -8,13 +8,14 @@
   {{- partial "head.html" . -}}
   {{- partialCached "init.html" . -}}
 
-  {{ $bodyLayout := "flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32" }}
   {{ $bodyColor := "text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral" }}
   {{ $bodyScrollbar := "scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600" }}
-  <body class="{{ $bodyLayout }} {{ $bodyColor }} {{ $bodyScrollbar }}">
-    {{/* Sidebar Navigation */}}
+  <body class="{{ $bodyColor }} {{ $bodyScrollbar }}">
+    {{/* Sidebar Navigation - Fixed to viewport */}}
     {{- partial "sidebar.html" . -}}
 
+    {{/* Main content wrapper with left margin for sidebar on desktop */}}
+    <div class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 lg:ml-80">
     <div id="the-top" class="absolute flex self-center">
       <a
         class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
@@ -41,6 +42,7 @@
         {{- partial "search.html" . -}}
       {{ end }}
     </div>
+    </div>{{/* Close main content wrapper */}}
   </body>
   {{ if site.Params.buymeacoffee.globalWidget | default false }}
     <script
