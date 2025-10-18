@@ -54,8 +54,8 @@ input[type="search"]:focus-visible {
 /* Default view transition - smooth cross-fade */
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 0.4s;
-  animation-timing-function: ease-in-out;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
 }
 
 /* Fade out old page */
@@ -104,6 +104,6 @@ article h1,
 ::view-transition-new(card-transition),
 ::view-transition-old(title-transition),
 ::view-transition-new(title-transition) {
-  animation-duration: 0.5s;
+  animation-duration: 0.25s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
