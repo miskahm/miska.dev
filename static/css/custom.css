@@ -1,8 +1,23 @@
-/* Search highlight color - match ocean/purple theme */
+/* Override ocean theme primary color from blue to purple */
+:root {
+  /* Purple color palette - replacing blue primary colors */
+  --color-primary-50: 250, 245, 255;
+  --color-primary-100: 243, 232, 255;
+  --color-primary-200: 233, 213, 255;
+  --color-primary-300: 216, 180, 254;
+  --color-primary-400: 192, 132, 252;
+  --color-primary-500: 168, 85, 247;
+  --color-primary-600: 147, 51, 234;
+  --color-primary-700: 126, 34, 206;
+  --color-primary-800: 107, 33, 168;
+  --color-primary-900: 88, 28, 135;
+}
+
+/* Search highlight color - match purple theme */
 mark,
 .search-result mark,
 #search-results mark {
-  background-color: rgba(139, 92, 246, 0.3) !important; /* Purple with transparency */
+  background-color: rgba(139, 92, 246, 0.3) !important;
   color: inherit !important;
 }
 
@@ -10,7 +25,7 @@ mark,
 .dark mark,
 .dark .search-result mark,
 .dark #search-results mark {
-  background-color: rgba(139, 92, 246, 0.4) !important; /* Slightly more visible in dark mode */
+  background-color: rgba(139, 92, 246, 0.4) !important;
   color: inherit !important;
 }
 
@@ -20,24 +35,16 @@ mark,
   background-color: rgba(139, 92, 246, 0.1) !important;
 }
 
-/* Search input focus color - override blue */
+/* Search input focus color */
 #search-query:focus,
 #search-query:focus-visible,
 input[type="search"]:focus,
 input[type="search"]:focus-visible {
-  outline: 2px dotted rgb(139, 92, 246) !important;
+  outline: 2px dotted rgba(var(--color-primary-600), 1) !important;
   outline-offset: 0px !important;
-  border-color: rgb(139, 92, 246) !important;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1) !important;
-}
-
-/* Remove default browser focus styles first */
-#search-query,
-input[type="search"] {
-  outline: none;
 }
 
 /* Search modal border color when focused */
 #search-modal:has(#search-query:focus) {
-  border-color: rgb(139, 92, 246) !important;
+  border-color: rgba(var(--color-primary-600), 1) !important;
 }
