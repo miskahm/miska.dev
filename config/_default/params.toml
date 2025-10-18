@@ -35,7 +35,9 @@ showScrollToTop = true
   # image = "/img/avatar.jpg"  # Commented out - will add later with full URL
   headline = "Security & Software Engineer"
   bio = "Passionate about cybersecurity, software engineering, and building fast, secure web applications."
+  email = "contact@miska.dev"
   links = [
+    { email = "mailto:contact@miska.dev" },
     { github = "https://github.com/miskahm" },
     { linkedin = "https://www.linkedin.com/in/miska-hämäläinen/" },
   ]
