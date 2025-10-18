@@ -7,8 +7,6 @@ tags: ["c", "vulkan", "graphics", "demoscene", "optimization", "shaders"]
 github: "https://github.com/miskahm/64kdemo"
 ---
 
-![64K Vulkan Demo](/images/projects/64kdemo/og-image.png)
-
 A **34.5 KB** demoscene intro using Vulkan and ShaderToy-style shaders written in pure C.
 
 ![Size: 34.5 KB](https://img.shields.io/badge/size-34.5%20KB-brightgreen)

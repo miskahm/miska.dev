@@ -7,7 +7,7 @@ tags: ["python", "computer-vision", "opencv", "yolo", "machine-learning", "strea
 github: "https://github.com/miskahm/visiontrack"
 ---
 
-![VisionTrack](/images/projects/visiontrack/og-image.png)
+![VisionTrack](/images/projects/visiontrack/screenshot.png)
 
 A production-ready computer vision system for real-time object detection and multi-object tracking, built with YOLOv8 and Streamlit. This project demonstrates clean architecture, comprehensive testing, and modern ML engineering practices.
 
