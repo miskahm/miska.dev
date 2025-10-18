@@ -1,0 +1,59 @@
+/* Custom Dark Purple Theme - WCAG AA Compliant */
+
+:root[data-default-appearance='dark'] {
+  /* Background colors */
+  --color-neutral-900: #1a0f2e; /* Deep purple-black background */
+  --color-neutral-800: #2d1b4e; /* Medium dark purple surface */
+  --color-neutral-700: #3d2563; /* Lighter purple surface */
+  --color-neutral-600: #4d3073; /* Border color */
+
+  /* Text colors */
+  --color-neutral-50: #f3e8ff;  /* Lightest text */
+  --color-neutral-100: #e9d5ff; /* Primary text - excellent contrast */
+  --color-neutral-200: #d8b4fe; /* Secondary text */
+  --color-neutral-300: #c084fc; /* Tertiary text */
+  --color-neutral-400: #a855f7; /* Muted text */
+  --color-neutral-500: #9333ea; /* Disabled text */
+
+  /* Primary accent colors */
+  --color-primary-400: #c084fc; /* Light purple accent */
+  --color-primary-500: #a855f7; /* Main purple accent */
+  --color-primary-600: #9333ea; /* Dark purple accent */
+  --color-primary-700: #7e22ce; /* Darker purple accent */
+
+  /* Ensure link visibility */
+  --tw-prose-links: #c084fc;
+  --tw-prose-invert-links: #c084fc;
+
+  /* Code block colors */
+  --tw-prose-pre-bg: #2d1b4e;
+  --tw-prose-invert-pre-bg: #2d1b4e;
+}
+
+/* Additional overrides for better purple integration */
+html.dark {
+  background-color: #1a0f2e;
+}
+
+html.dark body {
+  background-color: #1a0f2e;
+  color: #e9d5ff;
+}
+
+/* Ensure good contrast for interactive elements */
+html.dark a:hover {
+  color: #d8b4fe;
+}
+
+/* Scrollbar theming */
+html.dark ::-webkit-scrollbar-track {
+  background-color: #2d1b4e;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background-color: #4d3073;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #9333ea;
+}
