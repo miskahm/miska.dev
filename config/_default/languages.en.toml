@@ -1,10 +1,11 @@
 languageCode = "en"
 languageName = "English"
 weight = 1
-title = "Home"
+title = "Miska.dev"
 
 [params]
   displayName = "EN"
   isoCode = "en"
   rtl = false
   dateFormat = "2 January 2006"
+  logo = "Home"
