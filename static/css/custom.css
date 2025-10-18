@@ -11,6 +11,14 @@
   --color-primary-700: 126, 34, 206;
   --color-primary-800: 107, 33, 168;
   --color-primary-900: 88, 28, 135;
+
+  /* Force accent color to purple */
+  accent-color: #9333ea;
+}
+
+/* Set accent color on all elements */
+* {
+  accent-color: #9333ea !important;
 }
 
 /* Search highlight color - match purple theme */
@@ -35,18 +43,27 @@ mark,
   background-color: rgba(139, 92, 246, 0.1) !important;
 }
 
-/* Search input focus color */
-#search-query:focus,
-#search-query:focus-visible,
-input[type="search"]:focus,
-input[type="search"]:focus-visible {
-  outline: 2px dotted rgba(var(--color-primary-600), 1) !important;
+/* Search input focus color - force purple with hardcoded values */
+#search-wrapper #search-query:focus,
+#search-wrapper #search-query:focus-visible,
+#search-wrapper input[type="search"]:focus,
+#search-wrapper input[type="search"]:focus-visible {
+  outline: 2px dotted #9333ea !important;
+  outline-color: #9333ea !important;
   outline-offset: 0px !important;
+  border-color: #9333ea !important;
 }
 
 /* Search modal border color when focused */
-#search-modal:has(#search-query:focus) {
-  border-color: rgba(var(--color-primary-600), 1) !important;
+#search-wrapper #search-modal:has(#search-query:focus) {
+  border-color: #9333ea !important;
+}
+
+/* Override any prose mark elements with purple */
+.prose mark,
+:where(mark):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  background-color: #9333ea !important;
+  color: white !important;
 }
 
 /* ========== View Transitions ========== */
