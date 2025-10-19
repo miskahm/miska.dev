@@ -151,6 +151,35 @@ Hugo generates pure static HTML for maximum performance:
 - Optimized for Lighthouse scores 90+
 - Fast CDN delivery via GitHub Pages
 
+## Analytics
+
+### GoatCounter - Privacy-Friendly Analytics
+
+This site uses [GoatCounter](https://www.goatcounter.com/) for privacy-friendly, cookie-free analytics.
+
+**Key Features:**
+- ✅ **No cookies** - No consent banners required
+- ✅ **GDPR compliant** - No personal data collected
+- ✅ **Lightweight** - Minimal performance impact
+- ✅ **Open source** - Transparent implementation
+- ✅ **Privacy-first** - Aligns with security professional values
+
+**Configuration:**
+```toml
+# config/_default/params.toml
+[goatcounter]
+  code = "miskham"  # GoatCounter site code
+```
+
+**Implementation:**
+- Script location: `layouts/partials/analytics/goatcounter.html`
+- Only loads in production (`HUGO_ENV=production`)
+- Does NOT track local development traffic
+- Dashboard: https://miskham.goatcounter.com/
+
+**Disabling Analytics:**
+Remove or comment out the `[goatcounter]` section in `params.toml`.
+
 ## Theme Documentation
 
 [Blowfish Theme Docs](https://blowfish.page/docs/)

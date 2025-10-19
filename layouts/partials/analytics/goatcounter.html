@@ -1,0 +1,8 @@
+{{/* GoatCounter Analytics - Privacy-friendly, cookie-free analytics */}}
+{{/* Only load in production to avoid polluting analytics with dev traffic */}}
+{{ if and hugo.IsProduction .Site.Params.goatcounter.code }}
+<script
+  data-goatcounter="https://{{ .Site.Params.goatcounter.code }}.goatcounter.com/count"
+  async src="//gc.zgo.at/count.js">
+</script>
+{{ end }}

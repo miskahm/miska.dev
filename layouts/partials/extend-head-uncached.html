@@ -1,4 +1,7 @@
 {{/* This partial is called in the head but we'll use it to inject the sidebar into body via JavaScript */}}
+
+{{/* GoatCounter Analytics - Privacy-friendly, cookie-free tracking */}}
+{{ partial "analytics/goatcounter.html" . }}
 <script>
   // Inject sidebar as first child of body when DOM is ready
   document.addEventListener('DOMContentLoaded', function() {

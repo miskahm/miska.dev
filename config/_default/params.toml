@@ -53,3 +53,7 @@ disableTextInHeader = true  # Remove redundant Home button (sidebar has navigati
   showScrollToTop = true
 
 # Custom CSS - handled by theme's asset pipeline in assets/css/custom.css
+
+# Analytics - GoatCounter (privacy-friendly, cookie-free)
+[goatcounter]
+  code = "miskham"  # GoatCounter site code (miskham.goatcounter.com)
