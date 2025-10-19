@@ -161,6 +161,115 @@ Custom domain configured with:
 - **A Records** → GitHub Pages IPs (185.199.108-111.153)
 - **CNAME Record** (www) → miskahm.github.io
 
+## Troubleshooting Custom Styles
+
+### Issue: Custom CSS Not Loading
+
+**Symptoms:**
+- Color theme changes don't appear
+- Spacing modifications have no effect
+- Sidebar styling is missing
+
+**Root Cause:**
+Blowfish v3 uses Hugo's asset pipeline which reads from `assets/` folder, NOT `static/` folder.
+
+**Solution:**
+1. Place custom CSS in `assets/css/custom.css` (not `static/css/custom.css`)
+2. The theme automatically bundles it via `themes/blowfish/layouts/partials/head.html:105`
+3. Delete any old files in `static/css/` to avoid confusion
+
+**Why It Happens:**
+- Hugo's `resources.Get "css/custom.css"` looks in `assets/` folder
+- Files in `static/` are served as-is but NOT bundled with theme CSS
+- The old Blowfish v2 `customCSS` parameter in `params.toml` is obsolete in v3
+
+### Issue: Tailwind Utilities Not Working
+
+**Symptoms:**
+- HTML has classes like `space-x-12`, `gap-x-10` but spacing doesn't change
+- Browser DevTools shows classes but no CSS rules
+
+**Root Cause:**
+Blowfish theme pre-compiles Tailwind CSS and purges unused utilities. Custom layouts using new utility classes won't have corresponding CSS rules.
+
+**Solution:**
+Add missing utilities manually to `assets/css/custom.css`:
+
+```css
+/* Add Tailwind utilities not in pre-compiled theme CSS */
+.space-x-12 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 3rem !important; /* 48px */
+}
+
+.gap-x-10 {
+  column-gap: 2.5rem !important; /* 40px */
+}
+
+.ml-8 {
+  margin-left: 2rem !important; /* 32px */
+}
+```
+
+Use `!important` to ensure they override bundled CSS.
+
+### Issue: Changes Deploy But Don't Appear
+
+**Symptoms:**
+- GitHub Actions shows successful deployment
+- Changes work locally with `hugo server`
+- Changes don't appear on live site
+
+**Solutions:**
+1. **Hard refresh browser:** Ctrl+Shift+R (Windows/Linux) or Cmd+Shift+R (Mac)
+2. **Clear browser cache:** DevTools → Network tab → Disable cache
+3. **Wait for CDN:** GitHub Pages CDN can take 2-5 minutes to update
+4. **Check CSS bundle:** Inspect page source, find `main.bundle.min.*.css` link, verify fingerprint changed
+
+### Issue: Sidebar Layout Not Visible
+
+**Symptoms:**
+- Sidebar content appears but no styling
+- Border separator missing
+- Social icons have no spacing
+
+**Root Cause:**
+Custom CSS in wrong location (see "Custom CSS Not Loading" above).
+
+**Additional Checks:**
+1. Verify `layouts/partials/sidebar.html` exists
+2. Check sidebar is injected via `<template id=sidebar-template>` in head
+3. Ensure `@media (min-width: 1024px)` body margin is applied
+
+### Debugging Checklist
+
+When custom styles don't work:
+
+1. **Check file location:**
+   - ✅ `assets/css/custom.css`
+   - ❌ `static/css/custom.css`
+
+2. **Verify CSS loads:**
+   ```bash
+   curl -s https://miska.dev/ | grep -o 'main.bundle.min.[^"]*'
+   curl https://miska.dev/css/main.bundle.min.[hash].css | grep "your-custom-class"
+   ```
+
+3. **Test locally:**
+   ```bash
+   hugo server --buildDrafts
+   # Visit http://localhost:1313
+   ```
+
+4. **Check git status:**
+   ```bash
+   git status  # Ensure files are committed
+   gh run list --limit 1  # Verify deployment succeeded
+   ```
+
+5. **Hard refresh browser:**
+   - Chrome/Edge/Firefox: Ctrl+Shift+R
+   - Safari: Cmd+Shift+R
+
 ## License
 
 Content: © 2025 Miska Hämäläinen
