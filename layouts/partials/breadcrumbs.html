@@ -1,0 +1,45 @@
+{{/* Custom breadcrumbs with visible Home link */}}
+<ol class="flex items-center text-sm text-neutral-600 dark:text-neutral-400 print:hidden mb-4">
+  {{/* Always show Home link */}}
+  <li class="inline-flex items-center">
+    <a
+      href="{{ "" | relLangURL }}"
+      class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors flex items-center gap-1">
+      {{ partial "icon.html" "fire" }}
+      <span>Home</span>
+    </a>
+    <span class="px-2 text-primary-500">&gt;</span>
+  </li>
+
+  {{/* Render parent pages recursively */}}
+  {{ template "crumb" (dict "p1" . "p2" .) }}
+
+  {{/* Current page - no link */}}
+  <li class="inline text-neutral-900 dark:text-neutral-100 font-medium">
+    {{ .Title }}
+  </li>
+</ol>
+
+{{ define "crumb" }}
+  {{ if .p1.Parent }}
+    {{ if not .p1.Parent.IsHome }}
+      {{ template "crumb" (dict "p1" .p1.Parent "p2" .p2 ) }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Show all parent pages except Home and current page */}}
+  {{ if and (not .p1.IsHome) (ne .p1 .p2) }}
+    <li class="inline-flex items-center">
+      <a
+        class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+        href="{{ .p1.RelPermalink }}">
+        {{ if .p1.Title }}
+          {{- .p1.Title -}}
+        {{ else }}
+          {{- .p1.Section | title -}}
+        {{ end }}
+      </a>
+      <span class="px-2 text-primary-500">&gt;</span>
+    </li>
+  {{ end }}
+{{ end }}

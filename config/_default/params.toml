@@ -21,6 +21,7 @@ showScrollToTop = true
   showTableOfContents = true
   showTaxonomies = true
   showWordCount = true
+  showBreadcrumbs = true
   sharingLinks = ["twitter", "linkedin", "reddit", "hackernews"]
 
 # Homepage layout
