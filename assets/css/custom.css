@@ -143,22 +143,30 @@ aside::-webkit-scrollbar-thumb:hover {
 
 /* ========== Missing Tailwind Utilities (Not in Theme CSS) ========== */
 
-/* Space-x-12: 48px horizontal spacing between flex children */
-.space-x-12 > :not([hidden]) ~ :not([hidden]) {
-  margin-left: 3rem !important; /* 48px */
+/* Space-x-8: 32px horizontal spacing between flex children */
+.space-x-8 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 2rem !important; /* 32px */
 }
 
-/* Gap-x-10: 40px horizontal gap for flex/grid containers */
-.gap-x-10 {
-  column-gap: 2.5rem !important; /* 40px */
+/* Gap-x-6: 24px horizontal gap for flex/grid containers */
+.gap-x-6 {
+  column-gap: 1.5rem !important; /* 24px */
 }
 
-/* Padding-3: 12px padding (likely exists, adding for safety) */
-.p-3 {
-  padding: 0.75rem !important; /* 12px */
+/* Padding utilities */
+.p-2 {
+  padding: 0.5rem !important; /* 8px */
 }
 
-/* Margin-right-6: 24px right margin (likely exists, adding for safety) */
-.mr-6 {
-  margin-right: 1.5rem !important; /* 24px */
+/* Margin utilities */
+.mr-4 {
+  margin-right: 1rem !important; /* 16px */
+}
+
+.ml-4 {
+  margin-left: 1rem !important; /* 16px */
+}
+
+.pr-12 {
+  padding-right: 3rem !important; /* 48px - for search input */
 }

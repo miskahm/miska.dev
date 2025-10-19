@@ -26,14 +26,14 @@
 
 {{/* Desktop navigation - Theme toggle LEFT of search bar */}}
 {{ define "HeaderDesktopNavigation" }}
-  <div class="hidden md:flex items-center gap-x-10 ml-auto">
+  <div class="hidden md:flex items-center gap-x-6 ml-auto">
     {{/* Theme toggle - LEFT of search */}}
     {{ if .Site.Params.footer.showAppearanceSwitcher | default false }}
       <button
         id="appearance-switcher"
         aria-label="Dark mode switcher"
         type="button"
-        class="text-base hover:text-primary-600 dark:hover:text-primary-400 p-2 mr-6 flex-shrink-0">
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 p-2 mr-4 flex-shrink-0">
         <div class="flex items-center justify-center dark:hidden">
           {{ partial "icon.html" "moon" }}
         </div>
@@ -45,13 +45,13 @@
 
     {{/* Compact search bar */}}
     {{ if .Site.Params.enableSearch | default false }}
-      <div class="w-48 flex-shrink-0 ml-8">
+      <div class="w-48 flex-shrink-0 ml-4">
         <div class="relative">
           <input
             type="text"
             id="search-input-header"
             placeholder="Search..."
-            class="w-full px-4 py-2 pr-10 text-sm border border-neutral-300 dark:border-neutral-600 rounded-lg bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 dark:placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+            class="w-full px-4 py-2 pr-12 text-sm border border-neutral-300 dark:border-neutral-600 rounded-lg bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 dark:placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
             autocomplete="off"
           />
           <button
