@@ -159,8 +159,8 @@ aside::-webkit-scrollbar-thumb:hover {
   padding: 0.5rem !important; /* 8px */
 }
 
-.pl-10 {
-  padding-left: 2.5rem !important; /* 40px - for search input with left icon */
+.pl-12 {
+  padding-left: 3rem !important; /* 48px - for search input with left icon */
 }
 
 /* Margin utilities */
@@ -170,4 +170,9 @@ aside::-webkit-scrollbar-thumb:hover {
 
 .ml-4 {
   margin-left: 1rem !important; /* 16px */
+}
+
+/* Width utilities */
+.w-40 {
+  width: 10rem !important; /* 160px - narrower search bar */
 }
