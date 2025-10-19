@@ -22,5 +22,6 @@ This blog is powered by:
 - **Blowfish Theme** - Clean, responsive design
 - **GitHub Pages** - Free, reliable hosting
 - **GitHub Actions** - Automated deployment
+- **GoatCounter** - Privacy-friendly, cookie-free analytics
 
 Stay tuned for more content about cybersecurity, software development, and technical explorations!
