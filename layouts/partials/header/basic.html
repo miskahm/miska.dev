@@ -26,10 +26,10 @@
 
 {{/* Desktop navigation - Compact search with theme toggle */}}
 {{ define "HeaderDesktopNavigation" }}
-  <nav class="hidden md:flex items-center md:ml-12 h-12 ml-auto">
+  <div class="hidden md:flex items-center gap-x-6 ml-auto">
     {{/* Compact search bar */}}
     {{ if .Site.Params.enableSearch | default false }}
-      <div class="w-64 mr-4">
+      <div class="w-64">
         <div class="relative">
           <input
             type="text"
@@ -49,29 +49,27 @@
       </div>
     {{ end }}
 
-    {{/* Theme toggle next to search - with proper spacing */}}
+    {{/* Theme toggle next to search */}}
     {{ if .Site.Params.footer.showAppearanceSwitcher | default false }}
-      <div class="flex items-center">
-        <button
-          id="appearance-switcher"
-          aria-label="Dark mode switcher"
-          type="button"
-          class="text-base hover:text-primary-600 dark:hover:text-primary-400 p-2">
-          <div class="flex items-center justify-center dark:hidden">
-            {{ partial "icon.html" "moon" }}
-          </div>
-          <div class="items-center justify-center hidden dark:flex">
-            {{ partial "icon.html" "sun" }}
-          </div>
-        </button>
-      </div>
+      <button
+        id="appearance-switcher"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 p-2 shrink-0">
+        <div class="flex items-center justify-center dark:hidden">
+          {{ partial "icon.html" "moon" }}
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          {{ partial "icon.html" "sun" }}
+        </div>
+      </button>
     {{ end }}
 
     {{ partial "translations.html" . }}
     {{ if .Site.Params.enableA11y | default false }}
       {{ template "HeaderA11y" (dict "prefix" "desktop-" "Site" .Site) }}
     {{ end }}
-  </nav>
+  </div>
 {{ end }}
 
 {{/* Mobile navigation - With theme toggle */}}
