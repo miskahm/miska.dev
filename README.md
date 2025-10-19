@@ -59,8 +59,15 @@ miska.dev/
 │   ├── blog/           # Blog posts
 │   ├── projects/       # Project portfolio
 │   └── about/          # About page
+├── layouts/partials/    # Custom partials
+│   ├── sidebar.html    # Custom sidebar navigation
+│   ├── header/basic.html # Modified header with search
+│   ├── extend-head-uncached.html # JavaScript integration
+│   └── favicons.html   # Custom favicon config
 ├── static/             # Static assets
+│   ├── css/custom.css  # Purple theme & sidebar styles
 │   ├── img/           # Images
+│   ├── favicon.png    # Site favicon
 │   └── CNAME          # Custom domain config
 └── themes/blowfish/    # Theme (git submodule)
 ```
@@ -77,9 +84,24 @@ Deployment is automatic via GitHub Actions on push to `master` branch.
 
 ## Customization
 
+### Custom Sidebar Navigation
+The site features a custom left sidebar with:
+- **GitHub Profile Image** - Auto-fetched from GitHub username
+- **Navigation Menu** - All site sections (Blog, Projects, About)
+- **Recently Updated Posts** - Latest 5 blog posts
+- **Table of Contents** - Page-specific TOC on article pages
+- **Theme Toggle** - Dark/light mode switcher
+- **Social Links** - GitHub, LinkedIn, Email
+
+Files:
+- `layouts/partials/sidebar.html` - Sidebar structure
+- `layouts/partials/extend-head-uncached.html` - JavaScript integration
+- `layouts/partials/header/basic.html` - Header with search bar
+- `static/css/custom.css` - Purple theme and sidebar styles
+
 ### Theme Settings
 Edit `config/_default/params.toml` to customize:
-- Color scheme
+- Color scheme (currently purple)
 - Homepage layout
 - Author information
 - Social links
@@ -92,7 +114,7 @@ Edit `hugo.toml` for:
 
 ### Navigation
 Edit `config/_default/menus.toml` to modify:
-- Main navigation menu
+- Sidebar navigation menu
 - Footer links
 
 ## Content Management
