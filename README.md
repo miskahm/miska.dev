@@ -161,6 +161,40 @@ Custom domain configured with:
 - **A Records** → GitHub Pages IPs (185.199.108-111.153)
 - **CNAME Record** (www) → miskahm.github.io
 
+## Color Customization
+
+This site uses a custom purple theme instead of the default ocean blue. The customization is done via CSS variable overrides in `assets/css/custom.css`.
+
+### Color Variable Groups
+
+Blowfish theme uses three color variable groups:
+
+1. **`--color-neutral-*`** - Backgrounds, text, borders (grays)
+2. **`--color-primary-*`** - Main accent colors (buttons, links, hovers)
+3. **`--color-secondary-*`** - Secondary accents (tags, badges)
+
+### How to Customize Theme Colors
+
+To override theme colors, use `:root:root` selector for higher specificity:
+
+```css
+:root:root {
+  /* Neutral grays - backgrounds and text */
+  --color-neutral-800: 38, 38, 38;  /* Dark mode background */
+  --color-neutral-50: 250, 250, 250; /* Light mode background */
+
+  /* Primary colors - main accent */
+  --color-primary-500: 168, 85, 247; /* Purple */
+  --color-primary-600: 147, 51, 234; /* Darker purple */
+}
+```
+
+**Important:** Use `RGB` values without `rgb()` wrapper (e.g., `168, 85, 247` not `rgb(168, 85, 247)`)
+
+### Why :root:root?
+
+The ocean color scheme uses `:root` (specificity: 0,0,1,0). To guarantee our custom colors override it, we use `:root:root` (specificity: 0,0,2,0).
+
 ## Troubleshooting Custom Styles
 
 ### Issue: Custom CSS Not Loading

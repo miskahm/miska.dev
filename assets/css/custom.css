@@ -1,6 +1,19 @@
-/* Override ocean theme primary color from blue to purple */
+/* Override ocean theme colors from blue to purple with neutral backgrounds */
 /* Using :root:root for higher specificity (0,0,2,0) to override ocean scheme (0,0,1,0) */
 :root:root {
+  /* Neutral grays - removing blue tint from ocean theme */
+  --color-neutral: 255, 255, 255;
+  --color-neutral-50: 250, 250, 250;
+  --color-neutral-100: 245, 245, 245;
+  --color-neutral-200: 229, 229, 229;
+  --color-neutral-300: 212, 212, 212;
+  --color-neutral-400: 163, 163, 163;
+  --color-neutral-500: 115, 115, 115;
+  --color-neutral-600: 82, 82, 82;
+  --color-neutral-700: 64, 64, 64;
+  --color-neutral-800: 38, 38, 38;
+  --color-neutral-900: 23, 23, 23;
+
   /* Purple color palette - replacing blue primary colors */
   --color-primary-50: 250, 245, 255;
   --color-primary-100: 243, 232, 255;
