@@ -174,7 +174,11 @@ aside::-webkit-scrollbar-thumb:hover {
   margin-left: 2rem !important; /* 32px */
 }
 
-/* Gap-x-6: 24px horizontal gap for flex/grid containers */
+/* Gap utilities for flex/grid containers */
+.gap-x-2 {
+  column-gap: 0.5rem !important; /* 8px - search icon spacing */
+}
+
 .gap-x-6 {
   column-gap: 1.5rem !important; /* 24px */
 }
@@ -182,10 +186,6 @@ aside::-webkit-scrollbar-thumb:hover {
 /* Padding utilities */
 .p-2 {
   padding: 0.5rem !important; /* 8px */
-}
-
-.pl-12 {
-  padding-left: 3rem !important; /* 48px - for search input with left icon */
 }
 
 /* Margin utilities */
@@ -198,6 +198,10 @@ aside::-webkit-scrollbar-thumb:hover {
 }
 
 /* Width utilities */
+.w-32 {
+  width: 8rem !important; /* 128px - compact search input */
+}
+
 .w-40 {
-  width: 10rem !important; /* 160px - narrower search bar */
+  width: 10rem !important; /* 160px */
 }
