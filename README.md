@@ -163,39 +163,140 @@ Custom domain configured with:
 
 ## Color Customization
 
-This site uses a custom purple theme instead of the default ocean blue. The customization is done via CSS variable overrides in `assets/css/custom.css`.
+This site uses a **full purple theme** with deep purple backgrounds and purple accents throughout. The ocean theme's blue colors have been completely replaced with purple equivalents.
 
 ### Color Variable Groups
 
-Blowfish theme uses three color variable groups:
+Blowfish theme uses three color variable groups that ALL need to be overridden for a complete theme change:
 
-1. **`--color-neutral-*`** - Backgrounds, text, borders (grays)
+1. **`--color-neutral-*`** - Backgrounds, text, borders (tinted grays)
 2. **`--color-primary-*`** - Main accent colors (buttons, links, hovers)
 3. **`--color-secondary-*`** - Secondary accents (tags, badges)
 
-### How to Customize Theme Colors
+### Creating a Tinted Theme (Purple, Blue, Green, etc.)
 
-To override theme colors, use `:root:root` selector for higher specificity:
+To create a cohesive colored theme like ocean's blue or our purple, you need to **tint the neutral colors**, not just change the accents.
 
+#### The Color Tinting Technique
+
+**Problem:** Only changing primary colors (`--color-primary-*`) leaves gray backgrounds → theme looks half-implemented
+
+**Solution:** Add color tint to neutral grays by adjusting RGB balance:
+
+**Purple Tint (current theme):**
 ```css
 :root:root {
-  /* Neutral grays - backgrounds and text */
-  --color-neutral-800: 38, 38, 38;  /* Dark mode background */
-  --color-neutral-50: 250, 250, 250; /* Light mode background */
-
-  /* Primary colors - main accent */
-  --color-primary-500: 168, 85, 247; /* Purple */
-  --color-primary-600: 147, 51, 234; /* Darker purple */
+  /* Purple-tinted backgrounds - more blue than red */
+  --color-neutral-800: 40, 32, 58;   /* R=40, G=32, B=58 → Purple! */
+  --color-neutral-900: 25, 20, 42;   /* R=25, G=20, B=42 → Deeper purple */
 }
 ```
 
-**Important:** Use `RGB` values without `rgb()` wrapper (e.g., `168, 85, 247` not `rgb(168, 85, 247)`)
+**Blue Tint (ocean theme reference):**
+```css
+--color-neutral-800: 30, 41, 59;  /* R=30, G=41, B=59 → Blue tint */
+```
+
+**Green Tint (example):**
+```css
+--color-neutral-800: 30, 45, 35;  /* R=30, G=45, B=35 → Green tint */
+```
+
+**Pattern:** The dominant color channel (highest value) determines the tint.
+
+### Full Purple Theme Implementation
+
+Our complete purple theme overrides ALL three color groups:
+
+```css
+:root:root {
+  /* Purple-tinted neutrals - backgrounds and UI elements */
+  --color-neutral-50: 250, 248, 252;   /* Light purple tint */
+  --color-neutral-100: 245, 242, 250;
+  --color-neutral-200: 230, 225, 240;
+  --color-neutral-300: 210, 205, 225;
+  --color-neutral-400: 160, 150, 180;
+  --color-neutral-500: 120, 110, 140;
+  --color-neutral-600: 85, 75, 105;
+  --color-neutral-700: 60, 50, 85;
+  --color-neutral-800: 40, 32, 58;     /* Deep purple background */
+  --color-neutral-900: 25, 20, 42;     /* Very dark purple */
+
+  /* Bright purple accents - links, buttons, hovers */
+  --color-primary-500: 168, 85, 247;   /* Vibrant purple */
+  --color-primary-600: 147, 51, 234;   /* Darker purple */
+  /* ... all primary shades ... */
+
+  /* Lavender secondary - tags, badges */
+  --color-secondary-500: 150, 120, 220; /* Lavender */
+  --color-secondary-600: 130, 100, 200; /* Darker lavender */
+  /* ... all secondary shades ... */
+}
+```
 
 ### Why :root:root?
 
-The ocean color scheme uses `:root` (specificity: 0,0,1,0). To guarantee our custom colors override it, we use `:root:root` (specificity: 0,0,2,0).
+**CSS Specificity:** Ocean scheme uses `:root` (specificity: 0,0,1,0). To guarantee our custom colors override it, we use `:root:root` (specificity: 0,0,2,0).
+
+### Common Mistakes When Changing Theme Colors
+
+❌ **Only changing primary colors**
+```css
+/* This only changes accents - backgrounds stay blue-tinted! */
+:root:root {
+  --color-primary-500: 168, 85, 247;  /* Purple accent */
+  /* Missing neutral and secondary overrides */
+}
+```
+
+✅ **Changing all three color groups**
+```css
+/* This creates a cohesive purple theme */
+:root:root {
+  --color-neutral-800: 40, 32, 58;    /* Purple background */
+  --color-primary-500: 168, 85, 247;  /* Purple accent */
+  --color-secondary-500: 150, 120, 220; /* Purple secondary */
+}
+```
+
+### RGB Format Requirements
+
+**Important:** Use comma-separated RGB values WITHOUT `rgb()` wrapper:
+
+✅ Correct: `168, 85, 247`
+❌ Wrong: `rgb(168, 85, 247)`
+
+This is because Blowfish uses CSS variables with `rgba()` wrapper: `rgba(var(--color-primary-500), 1)`
 
 ## Troubleshooting Custom Styles
+
+### Issue: Theme Still Shows Blue (or Wrong Color)
+
+**Symptoms:**
+- Changed primary colors but background still blue
+- Accents work but overall theme color unchanged
+- Theme looks "half-implemented"
+
+**Root Cause:**
+Only overriding `--color-primary-*` variables changes accents, but backgrounds remain the ocean theme's blue-tinted grays.
+
+**Solution:**
+Override ALL three color groups in `assets/css/custom.css`:
+
+```css
+:root:root {
+  /* 1. Neutral colors - THIS is what creates the background tint */
+  --color-neutral-800: 40, 32, 58;    /* Purple tint */
+
+  /* 2. Primary colors - accents */
+  --color-primary-500: 168, 85, 247;  /* Purple */
+
+  /* 3. Secondary colors - tags/badges */
+  --color-secondary-500: 150, 120, 220; /* Lavender */
+}
+```
+
+**Key Insight:** The neutral colors control the overall theme "feel". Without tinting them, your theme will always look like gray with colored accents.
 
 ### Issue: Custom CSS Not Loading
 
