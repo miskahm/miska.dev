@@ -50,6 +50,4 @@ showScrollToTop = true
   showAppearanceSwitcher = true
   showScrollToTop = true
 
-# Custom CSS
-[params]
-  customCSS = ["css/custom.css"]
+# Custom CSS - handled by theme's asset pipeline in assets/css/custom.css

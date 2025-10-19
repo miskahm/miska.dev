@@ -1,59 +1,164 @@
-/* Custom Dark Purple Theme - WCAG AA Compliant */
-
-:root[data-default-appearance='dark'] {
-  /* Background colors */
-  --color-neutral-900: #1a0f2e; /* Deep purple-black background */
-  --color-neutral-800: #2d1b4e; /* Medium dark purple surface */
-  --color-neutral-700: #3d2563; /* Lighter purple surface */
-  --color-neutral-600: #4d3073; /* Border color */
-
-  /* Text colors */
-  --color-neutral-50: #f3e8ff;  /* Lightest text */
-  --color-neutral-100: #e9d5ff; /* Primary text - excellent contrast */
-  --color-neutral-200: #d8b4fe; /* Secondary text */
-  --color-neutral-300: #c084fc; /* Tertiary text */
-  --color-neutral-400: #a855f7; /* Muted text */
-  --color-neutral-500: #9333ea; /* Disabled text */
-
-  /* Primary accent colors */
-  --color-primary-400: #c084fc; /* Light purple accent */
-  --color-primary-500: #a855f7; /* Main purple accent */
-  --color-primary-600: #9333ea; /* Dark purple accent */
-  --color-primary-700: #7e22ce; /* Darker purple accent */
-
-  /* Ensure link visibility */
-  --tw-prose-links: #c084fc;
-  --tw-prose-invert-links: #c084fc;
-
-  /* Code block colors */
-  --tw-prose-pre-bg: #2d1b4e;
-  --tw-prose-invert-pre-bg: #2d1b4e;
+/* Override ocean theme primary color from blue to purple */
+:root {
+  /* Purple color palette - replacing blue primary colors */
+  --color-primary-50: 250, 245, 255;
+  --color-primary-100: 243, 232, 255;
+  --color-primary-200: 233, 213, 255;
+  --color-primary-300: 216, 180, 254;
+  --color-primary-400: 192, 132, 252;
+  --color-primary-500: 168, 85, 247;
+  --color-primary-600: 147, 51, 234;
+  --color-primary-700: 126, 34, 206;
+  --color-primary-800: 107, 33, 168;
+  --color-primary-900: 88, 28, 135;
 }
 
-/* Additional overrides for better purple integration */
-html.dark {
-  background-color: #1a0f2e;
+/* ========== View Transitions ========== */
+
+/* Default view transition - smooth cross-fade */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
 }
 
-html.dark body {
-  background-color: #1a0f2e;
-  color: #e9d5ff;
+/* Fade out old page */
+::view-transition-old(root) {
+  animation-name: fade-out;
 }
 
-/* Ensure good contrast for interactive elements */
-html.dark a:hover {
-  color: #d8b4fe;
+/* Fade in new page */
+::view-transition-new(root) {
+  animation-name: fade-in;
 }
 
-/* Scrollbar theming */
-html.dark ::-webkit-scrollbar-track {
-  background-color: #2d1b4e;
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
-html.dark ::-webkit-scrollbar-thumb {
-  background-color: #4d3073;
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-html.dark ::-webkit-scrollbar-thumb:hover {
-  background-color: #9333ea;
+/* Shared element transitions for article/project cards */
+.article-card,
+.project-card {
+  view-transition-name: card-transition;
+}
+
+/* Article/Project titles get transition names */
+article h1,
+.article-title,
+.project-title {
+  view-transition-name: title-transition;
+}
+
+/* Smooth morphing for shared elements */
+::view-transition-old(card-transition),
+::view-transition-new(card-transition),
+::view-transition-old(title-transition),
+::view-transition-new(title-transition) {
+  animation-duration: 0.25s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========== Sidebar Styling ========== */
+
+/* Sidebar border separator */
+#sidebar {
+  border-right: 2px solid rgba(163, 163, 163, 0.15);
+}
+
+.dark #sidebar {
+  border-right: 2px solid rgba(115, 115, 115, 0.15);
+}
+
+/* Sidebar TOC styling */
+.toc-sidebar ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.toc-sidebar li {
+  padding: 0.25rem 1rem;
+  margin: 0.125rem 0;
+}
+
+.toc-sidebar a {
+  color: rgb(var(--color-neutral-700));
+  text-decoration: none;
+  display: block;
+  transition: all 0.2s;
+}
+
+.dark .toc-sidebar a {
+  color: rgb(var(--color-neutral-300));
+}
+
+.toc-sidebar a:hover {
+  color: rgb(var(--color-primary-600));
+  background-color: rgba(var(--color-primary-50), 1);
+  border-radius: 0.25rem;
+}
+
+.dark .toc-sidebar a:hover {
+  color: rgb(var(--color-primary-400));
+  background-color: rgba(var(--color-primary-950), 1);
+}
+
+/* Nested TOC items */
+.toc-sidebar ul ul {
+  padding-left: 1rem;
+  margin-top: 0.25rem;
+}
+
+.toc-sidebar ul ul a {
+  font-size: 0.875rem;
+}
+
+/* Sidebar scroll behavior */
+aside::-webkit-scrollbar {
+  width: 6px;
+}
+
+aside::-webkit-scrollbar-thumb {
+  background: rgba(var(--color-neutral-400), 0.5);
+  border-radius: 3px;
+}
+
+aside::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--color-neutral-500), 0.7);
+}
+
+/* ========== Missing Tailwind Utilities (Not in Theme CSS) ========== */
+
+/* Space-x-12: 48px horizontal spacing between flex children */
+.space-x-12 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 3rem !important; /* 48px */
+}
+
+/* Gap-x-10: 40px horizontal gap for flex/grid containers */
+.gap-x-10 {
+  column-gap: 2.5rem !important; /* 40px */
+}
+
+/* Padding-3: 12px padding (likely exists, adding for safety) */
+.p-3 {
+  padding: 0.75rem !important; /* 12px */
+}
+
+/* Margin-right-6: 24px right margin (likely exists, adding for safety) */
+.mr-6 {
+  margin-right: 1.5rem !important; /* 24px */
 }
