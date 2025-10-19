@@ -26,14 +26,14 @@
 
 {{/* Desktop navigation - Theme toggle LEFT of search bar */}}
 {{ define "HeaderDesktopNavigation" }}
-  <div class="hidden md:flex items-center gap-x-4 ml-auto">
+  <div class="hidden md:flex items-center gap-x-10 ml-auto">
     {{/* Theme toggle - LEFT of search */}}
     {{ if .Site.Params.footer.showAppearanceSwitcher | default false }}
       <button
         id="appearance-switcher"
         aria-label="Dark mode switcher"
         type="button"
-        class="text-base hover:text-primary-600 dark:hover:text-primary-400 p-2 flex-shrink-0">
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 p-2 mr-6 flex-shrink-0">
         <div class="flex items-center justify-center dark:hidden">
           {{ partial "icon.html" "moon" }}
         </div>
