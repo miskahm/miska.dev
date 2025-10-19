@@ -33,8 +33,8 @@ showScrollToTop = true
 [author]
   name = "Miska Hämäläinen"
   # image = "/img/avatar.jpg"  # Commented out - will add later with full URL
-  headline = "Security & Software Engineer"
-  bio = "Passionate about cybersecurity, software engineering, and building fast, secure web applications."
+  headline = "Cybersecurity Professional | IAM/PAM Specialist"
+  bio = "Specializing in Identity and Access Management, zero-trust security frameworks, and infrastructure automation. Building practical security solutions that teams actually use."
   email = "contact@miska.dev"
   links = [
     { email = "mailto:contact@miska.dev" },
