@@ -24,12 +24,12 @@
   {{- end }}
 {{ end }}
 
-{{/* Desktop navigation - Simplified with always-visible search */}}
+{{/* Desktop navigation - Compact search with theme toggle */}}
 {{ define "HeaderDesktopNavigation" }}
-  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12 flex-1">
-    {{/* Always-visible search bar */}}
+  <nav class="hidden md:flex items-center gap-x-3 md:ml-12 h-12 ml-auto">
+    {{/* Compact search bar */}}
     {{ if .Site.Params.enableSearch | default false }}
-      <div class="flex-1 max-w-md ml-auto">
+      <div class="w-64">
         <div class="relative">
           <input
             type="text"
@@ -49,16 +49,30 @@
       </div>
     {{ end }}
 
+    {{/* Theme toggle next to search */}}
+    {{ if .Site.Params.footer.showAppearanceSwitcher | default false }}
+      <button
+        id="appearance-switcher"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+        <div class="flex items-center justify-center dark:hidden">
+          {{ partial "icon.html" "moon" }}
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          {{ partial "icon.html" "sun" }}
+        </div>
+      </button>
+    {{ end }}
+
     {{ partial "translations.html" . }}
     {{ if .Site.Params.enableA11y | default false }}
       {{ template "HeaderA11y" (dict "prefix" "desktop-" "Site" .Site) }}
     {{ end }}
-
-    {{/* Theme toggle removed - now in sidebar */}}
   </nav>
 {{ end }}
 
-{{/* Mobile navigation - Simplified */}}
+{{/* Mobile navigation - With theme toggle */}}
 {{ define "HeaderMobileToolbar" }}
   <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
     <span></span>
@@ -78,7 +92,21 @@
       </button>
     {{ end }}
 
-    {{/* Theme toggle removed - now in sidebar */}}
+    {{/* Theme toggle */}}
+    {{ if .Site.Params.footer.showAppearanceSwitcher | default false }}
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 me-1">
+        <div class="flex items-center justify-center dark:hidden">
+          {{ partial "icon.html" "moon" }}
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          {{ partial "icon.html" "sun" }}
+        </div>
+      </button>
+    {{ end }}
   </div>
 {{ end }}
 

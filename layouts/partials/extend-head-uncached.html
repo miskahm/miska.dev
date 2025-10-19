@@ -7,11 +7,11 @@
     if (sidebarTemplate) {
       document.body.insertAdjacentHTML('afterbegin', sidebarTemplate.innerHTML);
 
-      // Connect sidebar theme toggle to the same appearance switching logic
+      // Connect sidebar theme toggle to the main header toggle
       const sidebarToggle = document.getElementById('appearance-switcher-sidebar');
       if (sidebarToggle) {
         sidebarToggle.addEventListener('click', function() {
-          // Trigger the theme's built-in appearance switcher
+          // Trigger the theme's built-in appearance switcher in header
           const event = new Event('click');
           const mainToggle = document.getElementById('appearance-switcher') || document.getElementById('appearance-switcher-mobile');
           if (mainToggle) {
