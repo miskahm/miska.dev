@@ -26,14 +26,14 @@
 
 {{/* Desktop navigation - Theme toggle LEFT of search bar */}}
 {{ define "HeaderDesktopNavigation" }}
-  <div class="hidden md:flex items-center gap-x-6 ml-auto">
+  <div class="hidden md:flex items-center gap-x-3 ml-auto">
     {{/* Theme toggle - LEFT of search */}}
     {{ if .Site.Params.footer.showAppearanceSwitcher | default false }}
       <button
         id="appearance-switcher"
         aria-label="Dark mode switcher"
         type="button"
-        class="text-base hover:text-primary-600 dark:hover:text-primary-400 p-2 mr-4 flex-shrink-0">
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 p-2 flex-shrink-0">
         <div class="flex items-center justify-center dark:hidden">
           {{ partial "icon.html" "moon" }}
         </div>
@@ -45,7 +45,7 @@
 
     {{/* Compact search bar - icon outside input field */}}
     {{ if .Site.Params.enableSearch | default false }}
-      <div class="flex items-center gap-x-2 flex-shrink-0 ml-4">
+      <div class="flex items-center gap-x-2 flex-shrink-0">
         <button
           id="search-button"
           aria-label="Search"

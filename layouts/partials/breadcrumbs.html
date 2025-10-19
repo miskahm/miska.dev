@@ -1,11 +1,11 @@
 {{/* Custom breadcrumbs with visible Home link */}}
 <ol class="flex items-center text-sm text-neutral-600 dark:text-neutral-400 print:hidden mb-4">
   {{/* Always show Home link */}}
-  <li class="inline-flex items-center">
+  <li class="flex items-center">
     <a
       href="{{ "" | relLangURL }}"
-      class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors flex items-center gap-1">
-      <span class="w-4 h-4 flex items-center justify-center">{{ partial "icon.html" "fire" }}</span>
+      class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors inline-flex items-center gap-1">
+      <span class="inline-block align-text-bottom">{{ partial "icon.html" "fire" }}</span>
       <span>Home</span>
     </a>
     <span class="px-2 text-primary-500">&gt;</span>

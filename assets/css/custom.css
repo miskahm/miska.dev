@@ -179,6 +179,10 @@ aside::-webkit-scrollbar-thumb:hover {
   column-gap: 0.5rem !important; /* 8px - search icon spacing */
 }
 
+.gap-x-3 {
+  column-gap: 0.75rem !important; /* 12px - header elements spacing */
+}
+
 .gap-x-6 {
   column-gap: 1.5rem !important; /* 24px */
 }
