@@ -26,7 +26,7 @@
 
 {{/* Desktop navigation - Compact search with theme toggle */}}
 {{ define "HeaderDesktopNavigation" }}
-  <nav class="hidden md:flex items-center gap-x-3 md:ml-12 h-12 ml-auto">
+  <nav class="hidden md:flex items-center gap-x-4 md:ml-12 h-12 ml-auto">
     {{/* Compact search bar */}}
     {{ if .Site.Params.enableSearch | default false }}
       <div class="w-64">
@@ -49,13 +49,13 @@
       </div>
     {{ end }}
 
-    {{/* Theme toggle next to search */}}
+    {{/* Theme toggle next to search - with extra margin */}}
     {{ if .Site.Params.footer.showAppearanceSwitcher | default false }}
       <button
         id="appearance-switcher"
         aria-label="Dark mode switcher"
         type="button"
-        class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+        class="ml-2 text-base hover:text-primary-600 dark:hover:text-primary-400 p-2">
         <div class="flex items-center justify-center dark:hidden">
           {{ partial "icon.html" "moon" }}
         </div>
