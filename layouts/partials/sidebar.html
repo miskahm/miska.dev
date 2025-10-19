@@ -75,15 +75,27 @@
     </div>
     {{ end }}
 
-    {{/* Navigation Menu with Home */}}
+    {{/* Navigation Menu with Home and Icons */}}
     <nav class="space-y-1">
-      <a href="{{ "" | relLangURL }}" class="block px-4 py-2 text-neutral-700 dark:text-neutral-300 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-700 dark:hover:text-primary-300 rounded transition-colors">
-        Home
+      <a href="{{ "" | relLangURL }}" class="flex items-center gap-3 px-4 py-2 text-neutral-700 dark:text-neutral-300 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-700 dark:hover:text-primary-300 rounded transition-colors">
+        <span class="w-5 h-5">{{ partial "icon.html" "fire" }}</span>
+        <span>Home</span>
       </a>
       {{ if site.Menus.main }}
         {{ range site.Menus.main }}
-        <a href="{{ .URL }}" class="block px-4 py-2 text-neutral-700 dark:text-neutral-300 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-700 dark:hover:text-primary-300 rounded transition-colors">
-          {{ .Name }}
+        <a href="{{ .URL }}" class="flex items-center gap-3 px-4 py-2 text-neutral-700 dark:text-neutral-300 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-700 dark:hover:text-primary-300 rounded transition-colors">
+          <span class="w-5 h-5">
+            {{ if eq .Name "Blog" }}
+              {{ partial "icon.html" "pencil" }}
+            {{ else if eq .Name "Projects" }}
+              {{ partial "icon.html" "code" }}
+            {{ else if eq .Name "About" }}
+              {{ partial "icon.html" "circle-info" }}
+            {{ else }}
+              {{ partial "icon.html" "link" }}
+            {{ end }}
+          </span>
+          <span>{{ .Name }}</span>
         </a>
         {{ end }}
       {{ end }}
