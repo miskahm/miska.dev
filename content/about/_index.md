@@ -2,8 +2,6 @@
 title: "About"
 ---
 
-# About Me
-
 Cybersecurity professional specializing in Identity and Access Management (IAM/PAM) and zero-trust security frameworks.
 
 I've resolved critical infrastructure outages preventing significant revenue loss, automated server configurations that cut manual labor by 80%, and collaborated on prototyping AI-driven IAM solutions using natural language processing.
