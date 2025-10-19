@@ -60,8 +60,9 @@ miska.dev/
 │   ├── projects/       # Project portfolio
 │   └── about/          # About page
 ├── layouts/partials/    # Custom partials
-│   ├── sidebar.html    # Custom sidebar navigation
-│   ├── header/basic.html # Modified header with search
+│   ├── sidebar.html    # Custom sidebar navigation with icons
+│   ├── header/basic.html # Modified header (theme toggle + search)
+│   ├── home/profile.html # Custom homepage layout
 │   ├── extend-head-uncached.html # JavaScript integration
 │   └── favicons.html   # Custom favicon config
 ├── static/             # Static assets
@@ -87,16 +88,25 @@ Deployment is automatic via GitHub Actions on push to `master` branch.
 ### Custom Sidebar Navigation
 The site features a custom left sidebar with:
 - **GitHub Profile Image** - Auto-fetched from GitHub username
-- **Navigation Menu** - All site sections (Blog, Projects, About)
-- **Recently Updated Posts** - Latest 5 blog posts
-- **Table of Contents** - Page-specific TOC on article pages
-- **Theme Toggle** - Dark/light mode switcher
-- **Social Links** - GitHub, LinkedIn, Email
+- **Author Info** - Name and headline moved from center to sidebar
+- **Social Links** - Email, GitHub, LinkedIn (with 24px spacing)
+- **Navigation Menu** - Home, Blog, Projects, About with icons:
+  - 🔥 Home (fire icon)
+  - ✏️ Blog (pencil icon)
+  - 💻 Projects (code icon)
+  - ℹ️ About (circle-info icon)
+
+### Header Layout
+Compact header with:
+- **Theme Toggle** - Dark/light mode switcher (left side)
+- **Search Bar** - Compact 192px width search (right side)
+- Clean spacing with 16px gap between elements
 
 Files:
-- `layouts/partials/sidebar.html` - Sidebar structure
+- `layouts/partials/sidebar.html` - Sidebar structure with icons
 - `layouts/partials/extend-head-uncached.html` - JavaScript integration
-- `layouts/partials/header/basic.html` - Header with search bar
+- `layouts/partials/header/basic.html` - Header with theme toggle + search
+- `layouts/partials/home/profile.html` - Custom homepage (no center author info)
 - `static/css/custom.css` - Purple theme and sidebar styles
 
 ### Theme Settings
