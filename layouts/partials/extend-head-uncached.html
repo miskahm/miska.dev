@@ -6,6 +6,41 @@
     const sidebarTemplate = document.getElementById('sidebar-template');
     if (sidebarTemplate) {
       document.body.insertAdjacentHTML('afterbegin', sidebarTemplate.innerHTML);
+
+      // Connect sidebar theme toggle to the same appearance switching logic
+      const sidebarToggle = document.getElementById('appearance-switcher-sidebar');
+      if (sidebarToggle) {
+        sidebarToggle.addEventListener('click', function() {
+          // Trigger the theme's built-in appearance switcher
+          const event = new Event('click');
+          const mainToggle = document.getElementById('appearance-switcher') || document.getElementById('appearance-switcher-mobile');
+          if (mainToggle) {
+            mainToggle.dispatchEvent(event);
+          }
+        });
+      }
+    }
+
+    // Connect header search input to search modal
+    const headerSearchInput = document.getElementById('search-input-header');
+    const searchButton = document.getElementById('search-button');
+
+    if (headerSearchInput && searchButton) {
+      // When user clicks on the input or starts typing, open search modal
+      headerSearchInput.addEventListener('focus', function() {
+        searchButton.click();
+      });
+
+      headerSearchInput.addEventListener('input', function(e) {
+        // If search modal exists, update its input value
+        setTimeout(function() {
+          const modalSearchInput = document.querySelector('#search-query');
+          if (modalSearchInput && e.target.value) {
+            modalSearchInput.value = e.target.value;
+            modalSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
+          }
+        }, 100);
+      });
     }
   });
 </script>
