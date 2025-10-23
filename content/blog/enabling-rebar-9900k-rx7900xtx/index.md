@@ -55,6 +55,8 @@ Let's go through each step in detail.
 
 You should see the BIOS structure loaded in the left panel showing the Aptio capsule.
 
+![Opening BIOS file in UEFITool](1.png)
+
 #### Step 2: Search for the PciBus Module
 
 1. Go to **File > Search** (or press Ctrl+F)
@@ -72,6 +74,8 @@ in 3C1DE39F-D207-408A-AACC-731CFB7F1DD
 
 **Important**: If you get 2 results, you'll need to add the ReBarDxe module to both volumes. Some BIOS files contain multiple DXE driver volumes.
 
+![Searching for PciBus module GUID](2.png)
+
 #### Step 3: Locate the Insertion Point
 
 After the search completes:
@@ -82,6 +86,8 @@ After the search completes:
 4. In my case on the Maximus XI Hero, this was the file ending with `...B510C45A61D0`
 
 The structure should show many files with type "DXE driver" in the Subtype column.
+
+![Locating the last DXE driver and inserting ReBarDxe module](3.png)
 
 #### Step 4: Insert the ReBarDxe Module
 
@@ -95,6 +101,8 @@ You should now see two new entries added to the firmware:
 - `A8EE1777-A4F5-4345-9DA4-13742084D31E` (DXE driver - ReBarDxe)
 
 The "ReBarDxe" text should be visible in the Text column for the newly inserted module.
+
+![Verifying ReBarDxe module was inserted successfully](4.png)
 
 #### Step 5: Save the Modified BIOS
 
@@ -146,7 +154,6 @@ The modified BIOS now contains the ReBar driver, but you'll need to apply additi
 - **Use a 16GB or smaller USB stick** - larger drives may cause compatibility issues with BIOS Flashback
 - Ensure the USB drive is formatted as FAT32 (not exFAT or NTFS)
 - Do NOT power off or reset during the flash process
-- Ensure stable power supply (consider using a UPS)
 - If flash fails, you can repeat the process with stock BIOS to recover
 
 #### Step 9: Reconfigure BIOS Settings and Enable ReBar
@@ -180,16 +187,6 @@ In Windows:
 
 Alternatively, use GPU-Z to check the "Resizable BAR" status.
 
-## Performance Impact
-
-With ReBar enabled on my RX 7900 XTX, I've observed:
-
-- **5-15% performance improvement** in modern games (varies by title)
-- Particularly noticeable in games like Forza Horizon 5, Cyberpunk 2077, and Microsoft Flight Simulator
-- No stability issues or drawbacks
-
-The performance gains are real and measurable, making this modification well worth the effort.
-
 ## Troubleshooting
 
 ### BIOS Won't Boot After Flashing
@@ -214,7 +211,7 @@ The performance gains are real and measurable, making this modification well wor
 
 Enabling Resizable BAR on "unsupported" hardware like the 9900K demonstrates the arbitrary nature of some vendor limitations. The hardware is fully capable - it just required UEFI firmware modification to unlock the feature.
 
-The UEFITool method is straightforward and has worked reliably on my system. If you have a 9th gen Intel system or other "unsupported" hardware with a modern GPU, this modification can unlock meaningful performance improvements.
+The UEFITool method is straightforward and has worked reliably on my system. If you have a 9th gen Intel system or other "unsupported" hardware with a modern GPU, this modification can unlock the feature that would otherwise be artificially locked out.
 
 ## Resources
 
