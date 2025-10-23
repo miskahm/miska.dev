@@ -213,12 +213,6 @@ When ReBar is successfully enabled, GPU-Z will show "Enabled" in the Resizable B
 - Try enabling only "Above 4G Decoding" first
 - Update motherboard chipset drivers
 
-## Conclusion
-
-Enabling Resizable BAR on "unsupported" hardware like the 9900K demonstrates the arbitrary nature of some vendor limitations. The hardware is fully capable - it just required UEFI firmware modification to unlock the feature.
-
-The UEFITool method is straightforward and has worked reliably on my system. If you have a 9th gen Intel system or other "unsupported" hardware with a modern GPU, this modification can unlock the feature that would otherwise be artificially locked out.
-
 ## Resources
 
 - [ReBarUEFI Project](https://github.com/xCuri0/ReBarUEFI)
