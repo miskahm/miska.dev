@@ -185,7 +185,11 @@ In Windows:
 4. Go to **Resources** tab
 5. Look for "Large Memory Range" - if ReBar is working, you should see the full VRAM size (24GB for RX 7900 XTX)
 
-Alternatively, use GPU-Z to check the "Resizable BAR" status.
+Alternatively, use GPU-Z to check the "Resizable BAR" status:
+
+![GPU-Z showing Resizable BAR enabled](5.png)
+
+When ReBar is successfully enabled, GPU-Z will show "Enabled" in the Resizable BAR field under the Graphics Card tab.
 
 ## Troubleshooting
 
