@@ -123,11 +123,7 @@ UEFITool will warn you about potential signature issues - this is expected when 
 
 You'll need to reconfigure everything after flashing, so thorough documentation is crucial.
 
-#### Step 7: Apply UEFI Patches
-
-The modified BIOS now contains the ReBar driver, but you'll need to apply additional UEFI patches to fully enable the feature. Follow the [UEFI patching guide](https://github.com/xCuri0/ReBarUEFI/wiki/UEFI-Patching) from the ReBarUEFI wiki.
-
-#### Step 8: Flash the Modified BIOS Using USB BIOS Flashback
+#### Step 7: Flash the Modified BIOS Using USB BIOS Flashback
 
 **CRITICAL WARNING**: Flashing a modified BIOS carries inherent risks. On ASUS motherboards, you MUST use USB BIOS Flashback - do NOT use EZ Flash utility.
 
@@ -156,7 +152,7 @@ The modified BIOS now contains the ReBar driver, but you'll need to apply additi
 - Do NOT power off or reset during the flash process
 - If flash fails, you can repeat the process with stock BIOS to recover
 
-#### Step 9: Reconfigure BIOS Settings and Enable ReBar
+#### Step 8: Reconfigure BIOS Settings and Enable ReBar
 
 **After flashing, all BIOS settings will be reset to defaults.** When you first boot:
 
@@ -175,7 +171,7 @@ The modified BIOS now contains the ReBar driver, but you'll need to apply additi
 
 **Note**: Above 4G Decoding must be enabled first before the Resizable BAR option becomes available in the BIOS menu.
 
-#### Step 10: Verify ReBar is Active
+#### Step 9: Verify ReBar is Active
 
 In Windows, you can verify ReBar is working using two methods:
 
@@ -208,8 +204,8 @@ When ReBar is successfully enabled, GPU-Z will show "Enabled" in the Resizable B
 ### ReBar Option Not Appearing in BIOS
 
 - Ensure you modified all DXE volumes if multiple were found
-- Verify UEFI patches were applied correctly
 - Check if CSM (Compatibility Support Module) is disabled
+- **Note**: Some older motherboards may require additional UEFI patches. If ReBar doesn't appear after following this guide, consult the [UEFI patching guide](https://github.com/xCuri0/ReBarUEFI/wiki/UEFI-Patching) - this wasn't needed on the Maximus XI Hero but may be required on other boards
 
 ### System Instability
 
