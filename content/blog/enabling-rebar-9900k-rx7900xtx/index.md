@@ -30,7 +30,7 @@ Before starting, gather these requirements:
    - Critical: Only version 0.28.0 supports adding modules as of this writing
 2. **ReBarDxe.ffs** file from [ReBarUEFI releases](https://github.com/xCuri0/ReBarUEFI/releases)
 3. **Your motherboard's latest BIOS file** - Download from manufacturer's website
-4. **UEFI BIOS Updater** or your motherboard's flashing utility
+4. **16GB or smaller USB drive** - Formatted as FAT32 for USB BIOS Flashback
 5. **Backup** of your current working BIOS (optional but recommended)
 
 ### Visual Walkthrough Overview
