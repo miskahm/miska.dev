@@ -177,13 +177,19 @@ The modified BIOS now contains the ReBar driver, but you'll need to apply additi
 
 #### Step 10: Verify ReBar is Active
 
-In Windows:
+In Windows, you can verify ReBar is working using two methods:
+
+**Method 1: Device Manager**
 
 1. Open **Device Manager**
 2. Expand **Display adapters**
 3. Right-click your GPU > **Properties**
 4. Go to **Resources** tab
 5. Look for "Large Memory Range" - if ReBar is working, you should see the full VRAM size (24GB for RX 7900 XTX)
+
+![Device Manager showing Large Memory Range](6.png)
+
+**Method 2: GPU-Z**
 
 Alternatively, use GPU-Z to check the "Resizable BAR" status:
 
