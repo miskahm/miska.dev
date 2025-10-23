@@ -104,11 +104,22 @@ The "ReBarDxe" text should be visible in the Text column for the newly inserted 
 
 UEFITool will warn you about potential signature issues - this is expected when modifying firmware.
 
-#### Step 6: Apply UEFI Patches
+#### Step 6: Backup Your Current BIOS Settings
+
+**IMPORTANT**: Flashing the BIOS will reset ALL settings to defaults. Before proceeding:
+
+1. Enter your current BIOS/UEFI settings
+2. Take screenshots of all your custom settings (XMP profile, fan curves, boot order, etc.)
+3. Alternatively, use the BIOS's "Save & Exit" feature to export settings to a USB drive (if available)
+4. Document any important settings you've customized
+
+You'll need to reconfigure everything after flashing, so thorough documentation is crucial.
+
+#### Step 7: Apply UEFI Patches
 
 The modified BIOS now contains the ReBar driver, but you'll need to apply additional UEFI patches to fully enable the feature. Follow the [UEFI patching guide](https://github.com/xCuri0/ReBarUEFI/wiki/UEFI-Patching) from the ReBarUEFI wiki.
 
-#### Step 7: Flash the Modified BIOS Using USB BIOS Flashback
+#### Step 8: Flash the Modified BIOS Using USB BIOS Flashback
 
 **CRITICAL WARNING**: Flashing a modified BIOS carries inherent risks. On ASUS motherboards, you MUST use USB BIOS Flashback - do NOT use EZ Flash utility.
 
@@ -138,16 +149,26 @@ The modified BIOS now contains the ReBar driver, but you'll need to apply additi
 - Ensure stable power supply (consider using a UPS)
 - If flash fails, you can repeat the process with stock BIOS to recover
 
-#### Step 8: Enable ReBar in BIOS
+#### Step 9: Reconfigure BIOS Settings and Enable ReBar
 
-After flashing and rebooting:
+**After flashing, all BIOS settings will be reset to defaults.** When you first boot:
 
-1. Enter your motherboard's BIOS/UEFI settings
-2. Look for "Above 4G Decoding" or "Resizable BAR" options
-3. Enable both features
-4. Save and exit
+1. Enter your motherboard's BIOS/UEFI settings (usually by pressing Delete or F2)
+2. **Restore your previous settings** using your screenshots/notes:
+   - Enable XMP/DOCP for RAM overclocking
+   - Reconfigure fan curves
+   - Set boot order
+   - Adjust any other custom settings you documented
+3. **Enable ReBar-specific settings**:
+   - Navigate to Advanced > PCI Subsystem Settings (or similar)
+   - Set **Above 4G Decoding** to **Enabled**
+   - Set **Re-Size BAR Support** to **Enabled** (this option will only appear after Above 4G is enabled)
+4. Save changes and exit (F10)
+5. System will reboot
 
-#### Step 9: Verify ReBar is Active
+**Note**: Above 4G Decoding must be enabled first before the Resizable BAR option becomes available in the BIOS menu.
+
+#### Step 10: Verify ReBar is Active
 
 In Windows:
 
