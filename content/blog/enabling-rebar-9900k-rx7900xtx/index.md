@@ -8,7 +8,7 @@ tags: ["hardware", "windows", "uefi", "performance", "modding"]
 
 ## Background
 
-Resizable BAR (Base Address Register) is a PCIe feature that allows the CPU to access the entire GPU memory at once, rather than in small 256MB chunks. This can provide noticeable performance improvements in modern games and GPU-intensive workloads. However, Intel officially only supports ReBar on 10th gen processors and newer, leaving many perfectly capable systems behind.
+Resizable BAR (Base Address Register) is a PCIe feature that allows the CPU to access the entire GPU memory at once, rather than in small 256MB chunks. This can provide noticeable performance improvements in modern games and GPU-intensive workloads. However, ASUS notably didn't release BIOS updates with ReBar support for their Z390 platform (and some other older chipsets), leaving many perfectly capable systems behind.
 
 My system specs:
 - **CPU**: Intel Core i9-9900K
@@ -16,7 +16,7 @@ My system specs:
 - **OS**: Windows 10
 - **Motherboard**: ASUS ROG Maximus XI Hero (Z390 chipset)
 
-Despite AMD's RX 7900 XTX fully supporting ReBar and benefiting significantly from it, Intel's artificial limitation on 9th gen processors meant I couldn't enable this feature through official means.
+Despite AMD's RX 7900 XTX fully supporting ReBar and benefiting significantly from it, the lack of ReBar support in my motherboard's BIOS meant I couldn't enable this feature through official means.
 
 ## The Solution: UEFI Firmware Modification
 
