@@ -1,0 +1,10 @@
+{{- $address := index .Params 0 | default site.Params.author.email }}
+{{- $addressParts := split $address "@" }}
+{{- $userName := (index $addressParts 0) }}
+{{- $rootDomain := (index $addressParts 1) }}
+{{- $rootDomainParts := split $rootDomain "." }}
+{{- $domainName := (index $rootDomainParts 0) }}
+{{- $topLevelDomain := (index $rootDomainParts 1) }}
+<span class="email">
+  {{- printf "%s@%s<b>.%s</b>.%s" $userName $domainName $domainName $topLevelDomain | safeHTML -}}
+</span>

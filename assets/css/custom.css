@@ -209,3 +209,11 @@ aside::-webkit-scrollbar-thumb:hover {
 .w-40 {
   width: 10rem !important; /* 160px */
 }
+
+/* ========== Email Obfuscation ========== */
+
+/* Hide decoy text from email addresses to prevent spam bots */
+/* MUST use display: none for accessibility - other hiding methods break screen readers */
+span.email b {
+  display: none;
+}

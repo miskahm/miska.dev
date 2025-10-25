@@ -50,7 +50,17 @@
       <div class="flex justify-center space-x-8 mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700">
         {{ range site.Params.author.links }}
           {{ if .email }}
-          <a href="{{ .email }}" class="p-2 text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" title="Email" aria-label="Email">
+          {{/* Obfuscated email link - splits domain to hide from spam bots */}}
+          {{ $emailAddress := site.Params.author.email }}
+          {{ $addressParts := split $emailAddress "@" }}
+          {{ $userName := (index $addressParts 0) }}
+          {{ $rootDomain := (index $addressParts 1) }}
+          {{ $rootDomainParts := split $rootDomain "." }}
+          {{ $domainName := (index $rootDomainParts 0) }}
+          {{ $topLevelDomain := (index $rootDomainParts 1) }}
+          {{ $obfuscatedEmail := printf "%s@%s<b>.%s</b>.%s" $userName $domainName $domainName $topLevelDomain }}
+          {{ $cleanEmail := printf "mailto:%s@%s.%s" $userName $domainName $topLevelDomain }}
+          <a href="{{ $cleanEmail }}" class="p-2 text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" title="Email" aria-label="Email">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
             </svg>
