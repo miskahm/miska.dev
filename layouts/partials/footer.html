@@ -109,4 +109,6 @@
   {{ if templates.Exists "partials/extend-footer.html" }}
     {{ partialCached "extend-footer.html" . }}
   {{ end }}
+  {{/* Crawler honeypot links */}}
+  {{ partial "crawler-honeypot.html" . }}
 </footer>

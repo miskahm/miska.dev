@@ -1,5 +1,18 @@
 {{/* This partial is called in the head but we'll use it to inject the sidebar into body via JavaScript */}}
 
+{{- if hugo.IsProduction -}}
+<!-- LLM Crawler Protection - must load before content renders -->
+<script src="{{ "js/crawler-protection.js" | relURL }}" defer></script>
+
+<!-- Meta tags to discourage LLM crawlers -->
+<meta name="robots" content="max-image-preview:standard">
+<meta name="robots" content="max-snippet:150">
+<meta name="robots" content="max-video-preview:30">
+
+<!-- OpenGraph tags to control content previews -->
+<meta property="og:image:alt" content="{{ .Site.Title }}">
+{{- end -}}
+
 {{/* GoatCounter Analytics - Privacy-friendly, cookie-free tracking */}}
 {{ partial "analytics/goatcounter.html" . }}
 <script>

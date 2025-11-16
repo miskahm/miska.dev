@@ -217,3 +217,39 @@ aside::-webkit-scrollbar-thumb:hover {
 span.email b {
   display: none;
 }
+
+/* ========== Crawler Protection ========== */
+
+/**
+ * Crawler Protection - Hide sensitive content from crawlers
+ * This uses display:none which many crawlers ignore, but adds another layer
+ */
+
+/* Only apply in production builds */
+.crawler-sensitive {
+  /* Content that should be hidden from crawlers but visible to users */
+}
+
+/* Honeypot links - multiple layers of hiding */
+.crawler-honeypot,
+.honeypot-link {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+}
+
+/* Ensure honeypot links are not accessible via keyboard navigation */
+.crawler-honeypot a,
+.honeypot-link a {
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+}

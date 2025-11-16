@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>{{ .Title }} - {{ .Site.Title }}</title>
+
+  <!-- Immediately mark this crawler as bad -->
+  <script>
+    try {
+      localStorage.setItem('crawler_detected', Date.now());
+      localStorage.setItem('crawler_trap_page', window.location.pathname);
+    } catch(e) {
+      // localStorage might be blocked
+    }
+  </script>
+</head>
+<body>
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+
+  <p><a href="/">Return to home</a></p>
+
+  <script>
+    // Log the detection (if analytics available)
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({
+        path: window.location.pathname,
+        title: 'Crawler Trap Triggered',
+        event: true
+      });
+    }
+  </script>
+</body>
+</html>

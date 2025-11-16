@@ -1,0 +1,19 @@
+# Global headers
+/*
+  X-Robots-Tag: max-image-preview:standard, max-snippet:150
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Honeypot paths - no caching
+/heck-off/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  X-Robots-Tag: noindex, nofollow
+
+/crawler-trap/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  X-Robots-Tag: noindex, nofollow
+
+/validate/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  X-Robots-Tag: noindex, nofollow

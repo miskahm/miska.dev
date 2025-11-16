@@ -1,0 +1,11 @@
+{{- if hugo.IsProduction -}}
+<!-- Crawler honeypot - do not remove -->
+<p hidden style="display:none !important; visibility:hidden; opacity:0; position:absolute; left:-9999px;">
+  <a href="/heck-off/" rel="nofollow noindex" aria-hidden="true" tabindex="-1">
+    Do not follow this link
+  </a>
+  <a href="/crawler-trap/" rel="nofollow noindex" aria-hidden="true" tabindex="-1">
+    Crawler detection endpoint
+  </a>
+</p>
+{{- end -}}
