@@ -12,19 +12,19 @@ Android apps on Sailfish OS run in the android container, which has its own PID 
 
 Get a root shell.
 
-```bash
+```
 devel-su
 ```
 
 Then, as root, install sudo:
 
-```bash
+```
 pkcon install sudo
 ```
 
 `visudo` syntax-checks the file before saving, so a typo can't break sudo:
 
-```bash
+```
 visudo /etc/sudoers.d/01_defaultuser
 ```
 
