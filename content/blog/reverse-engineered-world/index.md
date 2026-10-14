@@ -104,26 +104,7 @@ Today the same method runs on a new fuel: the Rust programming language.
 
 Reverse-engineering agents accelerate the slow part. The behavior-mapping phase used to take a team months. An agent with REA can produce evidence-backed observations in an afternoon. The bottleneck moves from *understanding* to *specifying*, and specification is cheap.
 
-## 7. A Clean-Room Build in Practice
-
-[hns](https://github.com/miskahm/hns) is my own clean-room re-implementation in Rust. It rebuilds the Counter-Strike 1.6 game rules that the Hide'n'Seek mode needs, on top of Bevy and wgpu.
-
-Measured gates so far:
-
-| Milestone | Gate | Measured |
-|---|---|---|
-| M0 | de_dust2 walkthrough, no assets in the repository | **233 fps** |
-| M1 | player model and animations in-world, cold start | **95 ms** to first frame |
-
-Verification is the gate, not opinion:
-
-- A **parity harness** records per-tick movement traces from a reference server, then replays the same inputs through the new simulation. The two traces must match inside a small tolerance.
-- Every movement constant comes from the reference implementation. None are invented.
-- Format parsers are fuzz-targeted, and a determinism job must produce identical snapshots for identical inputs.
-
-The legal posture is written down, and it is load-bearing: the project ships **no game assets**, it reads the player's own installed copy **read-only**, and its client talks **only** to its own server. Reference servers act as an offline oracle for the tests. That is what a careful clean-room rebuild looks like. Observable behavior in. Fresh code out. Nothing copied across the wall.
-
-## 8. Why the Three Win
+## 7. Why the Three Win
 
 As AI tools make software legible and centralized platforms grow more extractive, user priorities shift. These three movements win in the long run for three reasons:
 
@@ -131,7 +112,7 @@ As AI tools make software legible and centralized platforms grow more extractive
 2. **True data and code sovereignty.** When binaries can be read and rewritten, obscurity stops protecting you. Real security comes from open standards, memory-safe code, and data you hold.
 3. **Digital independence.** Personal websites, local-first tools, and community re-implementations treat you as an owner, not as a tenant. The web returns to a network of sovereign nodes.
 
-## 9. Moving Forward
+## 8. Moving Forward
 
 You don't need to rewrite your workflow today. Start shifting your digital gravity:
 
@@ -149,4 +130,3 @@ Plant your flags on your own property. Keep your data local. The future belongs 
 - Local-First Software essay (Kleppmann, Wiggins, van Hardenberg, McGranaghan, 2019): [inkandswitch.com/essay/local-first](https://www.inkandswitch.com/essay/local-first/)
 - ACM DL entry, Onward! '19: [doi.org/10.1145/3359591.3359737](https://dl.acm.org/doi/10.1145/3359591.3359737)
 - POSSE, IndieWeb wiki: [indieweb.org/POSSE](https://indieweb.org/POSSE)
-- hns (clean-room CS 1.6 re-implementation): [github.com/miskahm/hns](https://github.com/miskahm/hns)
